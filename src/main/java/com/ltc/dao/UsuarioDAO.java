@@ -11,20 +11,22 @@ import com.ltc.entitis.Usuarios;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author davidscorp
  */
 @Stateless
-public class UsuarioDAO {
+public class UsuarioDAO extends GenericDAO<Usuarios>{
 
     private static final Logger LOGGER = Logger.getLogger(UsuarioDAO.class.getSimpleName());
 
-     @PersistenceContext(unitName = "LtcPU")
-    private EntityManager entityManager;
+    /**
+     *
+     */
+    public UsuarioDAO() {
+        super(Usuarios.class);
+    }
      
     /**
      * Metodo que valida si existe un usuario

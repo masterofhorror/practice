@@ -33,7 +33,7 @@ public class UsuarioLogica {
         Usuarios consultaUsuario = usuarioDAO.consultaUsuario(usuarioDTO.getUsuariosPass());
         if(consultaUsuario == null){
             salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.ERROR.name());
-            salida.setMensaje("");
+            salida.setMensaje("El usuario ingresado no se encuentra registrado");
             return salida;
         }
         return salida;

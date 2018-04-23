@@ -5,10 +5,22 @@
  */
 package com.ltc.dao;
 
+import com.ltc.dao.utils.GenericDAO;
+import com.ltc.entitis.InfoUsuarios;
+import javax.ejb.Stateless;
+
 /**
  *
  * @author davidscorp
  */
-public class InfoUsuarioDAO {
+@Stateless
+public class InfoUsuarioDAO extends GenericDAO<InfoUsuarios>{
+ 
+    /**
+     *
+     */
+    public InfoUsuarioDAO() {
+        super(InfoUsuarios.class);
+    }
     
 }
