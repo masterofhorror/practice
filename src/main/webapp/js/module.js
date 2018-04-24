@@ -3,12 +3,12 @@
 
     // Inicializacion del modulo
 
-    angular.module('GestionRNA.controllers', []);
+    angular.module('Ltc.controllers', []);
     
-    angular.module('GestionRNA.filters', []);
+    angular.module('Ltc.filters', []);
 
-    angular.module('GestionRNA.directives', []);
+    angular.module('Ltc.directives', []);
 
-    angular.module('GestionRNA.values', []);
+    angular.module('Ltc.values', []);
     
 })();
