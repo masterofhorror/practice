@@ -5,13 +5,15 @@
  */
 package com.ltc.servicios;
 
+import com.ltc.dto.InfoUsuarioDTO;
+import com.ltc.dto.MensajeDTO;
+import com.ltc.logica.UsuarioLogica;
+import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -19,35 +21,19 @@ import javax.ws.rs.core.MediaType;
  *
  * @author dsalamanca
  */
-@Path("generic")
+@Path("user")
 public class userServicio {
 
     @Context
     private UriInfo context;
+    
+    @EJB
+    private UsuarioLogica usuarioLogica;
 
-    /**
-     * Creates a new instance of userServicio
-     */
-    public userServicio() {
-    }
-
-    /**
-     * Retrieves representation of an instance of com.ltc.servicios.userServicio
-     * @return an instance of java.lang.String
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public String getXml() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * PUT method for updating or creating an instance of userServicio
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
+    @POST
+    @Path("/validaUser")
+    @Produces(MediaType.APPLICATION_JSON)
+    public MensajeDTO validaUsername(InfoUsuarioDTO infoUsuarioDTO){
+        return usuarioLogica.validaUsername(infoUsuarioDTO);
     }
 }

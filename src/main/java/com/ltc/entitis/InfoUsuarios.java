@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosNombres", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosNombres = :infoUsuariosNombres")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosWallet", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosWallet = :infoUsuariosWallet")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosEmail", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosEmail = :infoUsuariosEmail")
-    , @NamedQuery(name = "InfoUsuarios.findByUsuariosIdReferido", query = "SELECT i FROM InfoUsuarios i WHERE i.usuariosIdReferido = :usuariosIdReferido")})
+    , @NamedQuery(name = "InfoUsuarios.findByUsuariosIdReferido", query = "SELECT i FROM InfoUsuarios i WHERE i.usuariosIdReferido = :usuariosIdReferido")
+    , @NamedQuery(name = "InfoUsuarios.countUsername", query = "SELECT COUNT(i) FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :username")})
 public class InfoUsuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,7 +47,7 @@ public class InfoUsuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "info_usuarios_username")
-    private Integer infoUsuariosUsername;
+    private String infoUsuariosUsername;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -77,7 +78,7 @@ public class InfoUsuarios implements Serializable {
         this.infoUsuariosId = infoUsuariosId;
     }
 
-    public InfoUsuarios(Integer infoUsuariosId, Integer infoUsuariosUsername, String infoUsuariosNombres, String infoUsuariosWallet, String infoUsuariosEmail, Integer usuariosIdReferido) {
+    public InfoUsuarios(Integer infoUsuariosId, String infoUsuariosUsername, String infoUsuariosNombres, String infoUsuariosWallet, String infoUsuariosEmail, Integer usuariosIdReferido) {
         this.infoUsuariosId = infoUsuariosId;
         this.infoUsuariosUsername = infoUsuariosUsername;
         this.infoUsuariosNombres = infoUsuariosNombres;
@@ -94,11 +95,11 @@ public class InfoUsuarios implements Serializable {
         this.infoUsuariosId = infoUsuariosId;
     }
 
-    public Integer getInfoUsuariosUsername() {
+    public String getInfoUsuariosUsername() {
         return infoUsuariosUsername;
     }
 
-    public void setInfoUsuariosUsername(Integer infoUsuariosUsername) {
+    public void setInfoUsuariosUsername(String infoUsuariosUsername) {
         this.infoUsuariosUsername = infoUsuariosUsername;
     }
 
@@ -166,5 +167,5 @@ public class InfoUsuarios implements Serializable {
     public String toString() {
         return "com.ltc.entitis.InfoUsuarios[ infoUsuariosId=" + infoUsuariosId + " ]";
     }
-    
+
 }

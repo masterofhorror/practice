@@ -29,18 +29,18 @@ public class UsuarioDAO extends GenericDAO<Usuarios>{
     }
      
     /**
-     * Metodo que valida si existe un usuario
-     * @param pass
+     * Metodo que valida si existe el nombre de usuario
+     * @param username
      * @return 
      */
-    public Usuarios consultaUsuario(final String pass) {
+    public Integer validaUsername(final String username) {
         try {
-            return (Usuarios) entityManager.createNamedQuery("Usuarios.findByUsuariosPass")
-                    .setParameter(ConstantesComunes.PASS, pass)
-                    .getSingleResult();
+            return Integer.parseInt(entityManager.createNamedQuery("InfoUsuarios.countUsername")
+                    .setParameter(ConstantesComunes.USERNAME, username)
+                    .getSingleResult().toString());
         } catch (NumberFormatException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage());
         }
-        return null;
+        return 0;
     }
 }

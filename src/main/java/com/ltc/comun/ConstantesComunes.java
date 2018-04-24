@@ -12,5 +12,6 @@ package com.ltc.comun;
 public class ConstantesComunes {
     
     public static final String PASS = "password";
+    public static final String USERNAME = "username";
     
 }
