@@ -7,8 +7,10 @@ package com.ltc.logica;
 
 import com.ltc.comun.Mensajes;
 import com.ltc.dao.UsuarioDAO;
+import com.ltc.dto.InfoUsuarioDTO;
 import com.ltc.dto.MensajeDTO;
 import com.ltc.dto.UsuarioDTO;
+import com.ltc.entitis.InfoUsuarios;
 import com.ltc.entitis.Usuarios;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -25,12 +27,12 @@ public class UsuarioLogica {
     
     /**
      * 
-     * @param usuarioDTO
+     * @param infoUsuarioDTO
      * @return 
      */
-    public MensajeDTO consultaUsuario (UsuarioDTO usuarioDTO){
+    public MensajeDTO consultaUsuario (InfoUsuarioDTO infoUsuarioDTO){
         MensajeDTO salida = new MensajeDTO();
-        Usuarios consultaUsuario = usuarioDAO.consultaUsuario(usuarioDTO.getUsuariosPass());
+        Integer consultaUsuario = usuarioDAO.consultaUsuario(infoUsuarioDTO.getInfoUsuariosUsername());
         if(consultaUsuario == null){
             salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.ERROR.name());
             salida.setMensaje("El usuario ingresado no se encuentra registrado");

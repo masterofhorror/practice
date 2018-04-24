@@ -2,11 +2,11 @@
 
 var module = angular.module('Ltc', [
     'ngRoute',
-    'Ltc.controllers',
-    'Ltc.filters',
-    'Ltc.directives',
-    'Ltc.values',
-    'angularUtils.directives.dirPagination'
+    'Ltc.controllers'
+//    'Ltc.filters',
+//    'Ltc.directives',
+//    'Ltc.values',
+//    'angularUtils.directives.dirPagination'
 ]);
 
 module.config(['$routeProvider', function ($routeProvider) {
