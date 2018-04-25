@@ -1,4 +1,33 @@
-<input
-    ng-model="datosFormulario.usuario"/>
+<div ng-show="login">
+    Iniciar sesión
+    <input
+        ng-model="datosFormulario.username"
+        capitalize
+        />
+    <input
+        type="password"
+        ng-model="datosFormulario.password"
+        capitalize
+        />
+    <button type="button" class="btn btn-default" ng-click="startSesion()">Iniciar Sesión</button>
+    <button type="button" class="btn btn-default" ng-click="verRegistro()">Registrar</button>
+</div>
+<div ng-show="registrar">
+    registrar
+    <input
+        ng-model="datosFormulario.username"
+        capitalize
+        />
+    <input
+        ng-model="datosFormulario.password"
+        type="password"
+        />
+    <input
+        ng-model="datosFormulario.password2"
+        type="password"
+        />
+    <button type="button" class="btn btn-default" ng-click="verLogin()">Iniciar Sesión</button>
+    <button type="button" class="btn btn-default" ng-click="registerUser()">Registrar</button>
+</div>
 
-<button type="button" class="btn btn-default" ng-click="login()">Enviar</button>
+

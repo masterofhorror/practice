@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ltc.servicios;
+package com.ltc.dao.utils;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
 /**
  *
- * @author Dsalamanca
+ * @author dsalamanca
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
@@ -29,8 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.ltc.servicios.UsuarioServicio.class);
-   
+        resources.add(com.ltc.servicios.userServicio.class);
     }
     
 }

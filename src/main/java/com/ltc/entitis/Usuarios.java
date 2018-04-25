@@ -6,16 +6,21 @@
 package com.ltc.entitis;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,9 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
     , @NamedQuery(name = "Usuarios.findByUsuariosId", query = "SELECT u FROM Usuarios u WHERE u.usuariosId = :usuariosId")
     , @NamedQuery(name = "Usuarios.findByUsuariosEstado", query = "SELECT u FROM Usuarios u WHERE u.usuariosEstado = :usuariosEstado")
-    , @NamedQuery(name = "Usuarios.findByUsuariosTipo", query = "SELECT u FROM Usuarios u WHERE u.usuariosTipo = :usuariosTipo")
-    , @NamedQuery(name = "Usuarios.findByUsuariosPass", query = "SELECT u FROM Usuarios u WHERE u.usuariosPass = :password")
-    , @NamedQuery(name = "Usuarios.countUsuarioPass", query = "SELECT COUNT(u) FROM Usuarios u WHERE u.usuariosPass = :password")})
+    , @NamedQuery(name = "Usuarios.findByUsuariosTipo", query = "SELECT u FROM Usuarios u WHERE u.usuariosTipo = :usuariosTipo")})
 public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,11 +51,6 @@ public class Usuarios implements Serializable {
     @NotNull
     @Column(name = "usuarios_tipo")
     private Integer usuariosTipo;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "usuarios_pass")
-    private String usuariosPass;
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "infoUsuariosIdUsuario")
 //    private List<InfoUsuarios> infoUsuariosList;
 
@@ -63,11 +61,10 @@ public class Usuarios implements Serializable {
         this.usuariosId = usuariosId;
     }
 
-    public Usuarios(Integer usuariosId, Integer usuariosEstado, Integer usuariosTipo, String usuariosPass) {
+    public Usuarios(Integer usuariosId, Integer usuariosEstado, Integer usuariosTipo) {
         this.usuariosId = usuariosId;
         this.usuariosEstado = usuariosEstado;
         this.usuariosTipo = usuariosTipo;
-        this.usuariosPass = usuariosPass;
     }
 
     public Integer getUsuariosId() {
@@ -93,15 +90,7 @@ public class Usuarios implements Serializable {
     public void setUsuariosTipo(Integer usuariosTipo) {
         this.usuariosTipo = usuariosTipo;
     }
-
-    public String getUsuariosPass() {
-        return usuariosPass;
-    }
-
-    public void setUsuariosPass(String usuariosPass) {
-        this.usuariosPass = usuariosPass;
-    }
-
+//
 //    @XmlTransient
 //    public List<InfoUsuarios> getInfoUsuariosList() {
 //        return infoUsuariosList;
@@ -135,5 +124,5 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "com.ltc.entitis.Usuarios[ usuariosId=" + usuariosId + " ]";
     }
-
+    
 }

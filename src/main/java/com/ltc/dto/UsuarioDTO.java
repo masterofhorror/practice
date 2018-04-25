@@ -14,7 +14,6 @@ public class UsuarioDTO {
     private Integer usuariosId;
     private Integer usuariosEstado;
     private Integer usuariosTipo;
-    private String usuariosPass;
 
     public Integer getUsuariosId() {
         return usuariosId;
@@ -39,13 +38,4 @@ public class UsuarioDTO {
     public void setUsuariosTipo(Integer usuariosTipo) {
         this.usuariosTipo = usuariosTipo;
     }
-
-    public String getUsuariosPass() {
-        return usuariosPass;
-    }
-
-    public void setUsuariosPass(String usuariosPass) {
-        this.usuariosPass = usuariosPass;
-    }
-    
 }

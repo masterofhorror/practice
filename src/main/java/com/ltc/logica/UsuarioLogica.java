@@ -7,9 +7,9 @@ package com.ltc.logica;
 
 import com.ltc.comun.Mensajes;
 import com.ltc.dao.UsuarioDAO;
+import com.ltc.dao.utils.TransformacionDozer;
 import com.ltc.dto.InfoUsuarioDTO;
 import com.ltc.dto.MensajeDTO;
-import com.ltc.dto.UsuarioDTO;
 import com.ltc.entitis.InfoUsuarios;
 import com.ltc.entitis.Usuarios;
 import javax.ejb.EJB;
@@ -21,24 +21,49 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class UsuarioLogica {
-    
+
     @EJB
     private UsuarioDAO usuarioDAO;
-    
+
     /**
-     * 
+     *
      * @param infoUsuarioDTO
-     * @return 
+     * @return
      */
-    public MensajeDTO consultaUsuario (InfoUsuarioDTO infoUsuarioDTO){
+    public MensajeDTO login(InfoUsuarioDTO infoUsuarioDTO) {
         MensajeDTO salida = new MensajeDTO();
-        Integer consultaUsuario = usuarioDAO.consultaUsuario(infoUsuarioDTO.getInfoUsuariosUsername());
-        if(consultaUsuario == null){
+        //Se valida que el nombre de usuario exista en la base de datos
+        Integer validaUsername = usuarioDAO.validaUsername(infoUsuarioDTO.getInfoUsuariosUsername());
+        if (validaUsername == 0) {
             salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.ERROR.name());
-            salida.setMensaje("El usuario ingresado no se encuentra registrado");
+            salida.setMensaje("El nombre de usuario no se encuentra registrado");
             return salida;
+        }
+        InfoUsuarios consultaUsuario = usuarioDAO.consultaUsuario(infoUsuarioDTO.getInfoUsuariosUsername(), infoUsuarioDTO.getInfoUsuariosPass());
+        if (consultaUsuario == null) {
+            salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.ERROR.name());
+            salida.setMensaje("Error en el nombre de usuario o contraseña, por favor valide y vuelva a intentar");
+            return salida;
+        } else {
+            if (consultaUsuario.getUsuarios().getUsuariosEstado() != 1) {
+                salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.ERROR.name());
+                salida.setMensaje("El estado del usuario es INACTIVO");
+                return salida;
+            } else {
+                if (consultaUsuario.getUsuarios().getUsuariosTipo() == 1) {
+                    InfoUsuarioDTO usuario = TransformacionDozer.transformar(consultaUsuario, InfoUsuarioDTO.class);
+                    salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.USER.name());
+                    salida.setObject(usuario);
+                    return salida;
+                } else if (consultaUsuario.getUsuarios().getUsuariosTipo() == 2) {
+                    InfoUsuarioDTO usuario = TransformacionDozer.transformar(consultaUsuario, InfoUsuarioDTO.class);
+                    salida.setCodmensaje(Mensajes.ESTADOS_MESAJE.ADMIN.name());
+                    salida.setObject(usuario);
+                    return salida;
+                }
+            }
         }
         return salida;
     }
-    
+
 }

@@ -30,11 +30,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "InfoUsuarios.findAll", query = "SELECT i FROM InfoUsuarios i")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosId", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosId = :infoUsuariosId")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosUsername", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :infoUsuariosUsername")
+    , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosPass", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosPass = :infoUsuariosPass")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosNombres", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosNombres = :infoUsuariosNombres")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosWallet", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosWallet = :infoUsuariosWallet")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosEmail", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosEmail = :infoUsuariosEmail")
     , @NamedQuery(name = "InfoUsuarios.findByUsuariosIdReferido", query = "SELECT i FROM InfoUsuarios i WHERE i.usuariosIdReferido = :usuariosIdReferido")
-    , @NamedQuery(name = "InfoUsuarios.countUsername", query = "SELECT COUNT(i) FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :username")})
+    , @NamedQuery(name = "InfoUsuarios.countUsername", query = "SELECT COUNT(i) FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :username")
+    , @NamedQuery(name = "InfoUsuarios.findUserByPassAndUser", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :username AND i.infoUsuariosPass = :password")    
+})
 public class InfoUsuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,6 +51,11 @@ public class InfoUsuarios implements Serializable {
     @NotNull
     @Column(name = "info_usuarios_username")
     private String infoUsuariosUsername;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "info_usuarios_pass")
+    private String infoUsuariosPass;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -67,9 +75,9 @@ public class InfoUsuarios implements Serializable {
     @NotNull
     @Column(name = "usuarios_id_referido")
     private Integer usuariosIdReferido;
+    @ManyToOne
     @JoinColumn(name = "info_usuarios_id_usuario", referencedColumnName = "usuarios_id")
-    @ManyToOne(optional = false)
-    private Usuarios infoUsuariosIdUsuario;
+    private Usuarios usuarios;
 
     public InfoUsuarios() {
     }
@@ -78,9 +86,10 @@ public class InfoUsuarios implements Serializable {
         this.infoUsuariosId = infoUsuariosId;
     }
 
-    public InfoUsuarios(Integer infoUsuariosId, String infoUsuariosUsername, String infoUsuariosNombres, String infoUsuariosWallet, String infoUsuariosEmail, Integer usuariosIdReferido) {
+    public InfoUsuarios(Integer infoUsuariosId, String infoUsuariosUsername, String infoUsuariosPass, String infoUsuariosNombres, String infoUsuariosWallet, String infoUsuariosEmail, Integer usuariosIdReferido) {
         this.infoUsuariosId = infoUsuariosId;
         this.infoUsuariosUsername = infoUsuariosUsername;
+        this.infoUsuariosPass = infoUsuariosPass;
         this.infoUsuariosNombres = infoUsuariosNombres;
         this.infoUsuariosWallet = infoUsuariosWallet;
         this.infoUsuariosEmail = infoUsuariosEmail;
@@ -101,6 +110,14 @@ public class InfoUsuarios implements Serializable {
 
     public void setInfoUsuariosUsername(String infoUsuariosUsername) {
         this.infoUsuariosUsername = infoUsuariosUsername;
+    }
+
+    public String getInfoUsuariosPass() {
+        return infoUsuariosPass;
+    }
+
+    public void setInfoUsuariosPass(String infoUsuariosPass) {
+        this.infoUsuariosPass = infoUsuariosPass;
     }
 
     public String getInfoUsuariosNombres() {
@@ -135,14 +152,14 @@ public class InfoUsuarios implements Serializable {
         this.usuariosIdReferido = usuariosIdReferido;
     }
 
-    public Usuarios getInfoUsuariosIdUsuario() {
-        return infoUsuariosIdUsuario;
+    public Usuarios getUsuarios() {
+        return usuarios;
     }
 
-    public void setInfoUsuariosIdUsuario(Usuarios infoUsuariosIdUsuario) {
-        this.infoUsuariosIdUsuario = infoUsuariosIdUsuario;
+    public void setUsuarios(Usuarios usuarios) {
+        this.usuarios = usuarios;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;

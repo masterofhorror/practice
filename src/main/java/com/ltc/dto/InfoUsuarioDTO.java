@@ -9,12 +9,13 @@ import com.ltc.entitis.Usuarios;
 
 /**
  *
- * @author davidscorp
+ * @author dsalamanca
  */
 public class InfoUsuarioDTO {
     
     private Integer infoUsuariosId;
     private String infoUsuariosUsername;
+    private String infoUsuariosPass;
     private String infoUsuariosNombres;
     private String infoUsuariosWallet;
     private String infoUsuariosEmail;
@@ -35,6 +36,14 @@ public class InfoUsuarioDTO {
 
     public void setInfoUsuariosUsername(String infoUsuariosUsername) {
         this.infoUsuariosUsername = infoUsuariosUsername;
+    }
+
+    public String getInfoUsuariosPass() {
+        return infoUsuariosPass;
+    }
+
+    public void setInfoUsuariosPass(String infoUsuariosPass) {
+        this.infoUsuariosPass = infoUsuariosPass;
     }
 
     public String getInfoUsuariosNombres() {
@@ -76,6 +85,5 @@ public class InfoUsuarioDTO {
     public void setInfoUsuariosIdUsuario(Usuarios infoUsuariosIdUsuario) {
         this.infoUsuariosIdUsuario = infoUsuariosIdUsuario;
     }
-    
-    
+
 }

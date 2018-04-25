@@ -12,7 +12,7 @@ package com.ltc.comun;
 public class Mensajes {
     
     public static enum ESTADOS_MESAJE {
-        OK, ERROR
+        OK, ERROR, USER, ADMIN
     };
     
 }
