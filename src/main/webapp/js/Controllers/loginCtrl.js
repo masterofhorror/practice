@@ -19,14 +19,16 @@
         // ** --Llamado de funciones
         $scope.startSesion = startSesion;
         $scope.registerUser = registerUser;
-        
+
         function startSesion() {
             var error = false;
             if (!$scope.datosFormulario.username) {
                 alert("El nombre de usuario es obligatorio");
+                error = true;
             }
-            if(!$scope.datosFormulario.password){
+            if (!$scope.datosFormulario.password) {
                 alert("El password es obligatorio");
+                error = true;
             }
             if (!error) {
                 $scope.datos.infoUsuariosUsername = $scope.datosFormulario.username;
@@ -41,26 +43,61 @@
                                 }
                             }
                         }).error(function (data, status, headers, config) {
-                    alert("Error al consultar el vehículo, por favor intentar luego.");
+                    alert("Error al iniciar sesión, por favor intentar luego.");
                 });
             }
         }
-        
-        function registerUser(){
+
+        function registerUser() {
             var error = false;
             if (!$scope.datosFormulario.username) {
                 alert("El nombre de usuario es obligatorio");
+                error = true;
             }
-            if(!$scope.datosFormulario.password){
+            if (!$scope.datosFormulario.password) {
                 alert("La contraseña es obligatorio");
-            }else{
-                if(!$scope.datosFormulario.password2){
+            } else {
+                if (!$scope.datosFormulario.password2) {
                     alert("Por favor repetir la contraseña");
-                }else{
-                    if($scope.datosFormulario.password !== $scope.datosFormulario.password2){
+                    error = true;
+                } else {
+                    if ($scope.datosFormulario.password !== $scope.datosFormulario.password2) {
                         alert("Los campos de coinciden");
+                        error = true;
                     }
                 }
+            }
+            if (!$scope.datosFormulario.nombres) {
+                alert("El nombre es obligatorio");
+                error = true;
+            }
+            if (!$scope.datosFormulario.email) {
+                alert("La dirección de correo electronico es obligatorio");
+                error = true;
+            }
+            if (!$scope.datosFormulario.wallet) {
+                alert("El número de wallet es obligatorio");
+                error = true;
+            }
+            if (!error) {
+                $scope.datos.infoUsuariosUsername = $scope.datosFormulario.username;
+                $scope.datos.infoUsuariosPass = $scope.datosFormulario.password;
+                $scope.datos.infoUsuariosNombres = $scope.datosFormulario.nombres;
+                $scope.datos.infoUsuariosWallet = $scope.datosFormulario.wallet;
+                $scope.datos.infoUsuariosEmail = $scope.datosFormulario.email;
+                $scope.datos.usuariosIdReferido = $scope.datosFormulario.referido;
+                $http.post($scope.urlConsulta + "user/registerUser", $scope.datos, {})
+                        .success(function (data, status, headers, config) {
+                            if (data.codmensaje === "OK") {
+                                alert("EL usuario existe");
+                            } else {
+                                if (data.codmensaje === "ERROR") {
+                                    alert(data.mensaje);
+                                }
+                            }
+                        }).error(function (data, status, headers, config) {
+                    alert("Error al iniciar sesión, por favor intentar luego.");
+                });
             }
         }
 

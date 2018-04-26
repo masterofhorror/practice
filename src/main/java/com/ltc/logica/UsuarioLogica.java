@@ -11,7 +11,6 @@ import com.ltc.dao.utils.TransformacionDozer;
 import com.ltc.dto.InfoUsuarioDTO;
 import com.ltc.dto.MensajeDTO;
 import com.ltc.entitis.InfoUsuarios;
-import com.ltc.entitis.Usuarios;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -24,6 +23,27 @@ public class UsuarioLogica {
 
     @EJB
     private UsuarioDAO usuarioDAO;
+    
+    /**
+     * Metodo que se encarga de insertar un usuario
+     * @param infoUsuarioDTO
+     * @return 
+     */
+    public MensajeDTO registerUser(InfoUsuarioDTO infoUsuarioDTO){
+        MensajeDTO salida = new MensajeDTO();
+        
+        return salida;
+    }
+    
+    /**
+     * Metodo que valida si el usuario existe
+     * @return 
+     */
+    public String validaUsuario (){
+        String mensaje = null;
+        
+        return mensaje;
+    }
 
     /**
      *

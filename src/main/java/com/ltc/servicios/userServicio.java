@@ -30,10 +30,27 @@ public class userServicio {
     @EJB
     private UsuarioLogica usuarioLogica;
 
+    /**
+     * 
+     * @param infoUsuarioDTO
+     * @return 
+     */
     @POST
     @Path("/validaUser")
     @Produces(MediaType.APPLICATION_JSON)
     public MensajeDTO login(InfoUsuarioDTO infoUsuarioDTO){
         return usuarioLogica.login(infoUsuarioDTO);
+    }
+    
+    /**
+     * 
+     * @param infoUsuarioDTO
+     * @return 
+     */
+    @POST
+    @Path("/registerUser")
+    @Produces(MediaType.APPLICATION_JSON)
+    public MensajeDTO registrerUser(InfoUsuarioDTO infoUsuarioDTO){
+        return usuarioLogica.registerUser(infoUsuarioDTO);
     }
 }

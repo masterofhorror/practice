@@ -19,12 +19,28 @@
         capitalize
         />
     <input
+        ng-model="datosFormulario.nombres"
+        capitalize
+        />
+    <input
+        ng-model="datosFormulario.email"
+        capitalize
+        />
+    <input
+        ng-model="datosFormulario.wallet"
+        
+        />
+    <input
         ng-model="datosFormulario.password"
         type="password"
         />
     <input
         ng-model="datosFormulario.password2"
         type="password"
+        />
+    <input
+        ng-model="datosFormulario.referido"
+        capitalize
         />
     <button type="button" class="btn btn-default" ng-click="verLogin()">Iniciar Sesión</button>
     <button type="button" class="btn btn-default" ng-click="registerUser()">Registrar</button>
