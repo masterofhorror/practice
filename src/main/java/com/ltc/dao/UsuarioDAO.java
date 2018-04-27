@@ -5,11 +5,8 @@
  */
 package com.ltc.dao;
 
-import com.ltc.comun.ConstantesComunes;
 import com.ltc.dao.utils.GenericDAO;
-import com.ltc.entitis.InfoUsuarios;
 import com.ltc.entitis.Usuarios;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 
@@ -27,39 +24,5 @@ public class UsuarioDAO extends GenericDAO<Usuarios>{
      */
     public UsuarioDAO() {
         super(Usuarios.class);
-    }
-     
-    /**
-     * Metodo que valida si existe el nombre de usuario
-     * @param username
-     * @return 
-     */
-    public Integer validaUsername(final String username) {
-        try {
-            return Integer.parseInt(entityManager.createNamedQuery("InfoUsuarios.countUsername")
-                    .setParameter(ConstantesComunes.USERNAME, username)
-                    .getSingleResult().toString());
-        } catch (NumberFormatException e) {
-            LOGGER.log(Level.SEVERE, e.getLocalizedMessage());
-        }
-        return 0;
-    }
-    
-    /**
-     * Metodo que consulta el usuario
-     * @param username
-     * @param pass
-     * @return 
-     */
-    public InfoUsuarios consultaUsuario (final String username, final String pass){
-        try {
-            return (InfoUsuarios) entityManager.createNamedQuery("")
-                    .setParameter(ConstantesComunes.USERNAME, username)
-                    .setParameter(ConstantesComunes.PASS, pass)
-                    .getSingleResult();
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, e.getLocalizedMessage());
-        }
-        return null;
     }
 }

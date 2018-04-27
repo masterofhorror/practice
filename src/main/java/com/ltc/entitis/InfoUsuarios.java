@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "InfoUsuarios.findAll", query = "SELECT i FROM InfoUsuarios i")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosId", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosId = :infoUsuariosId")
-    , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosUsername", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :infoUsuariosUsername")
+    , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosUsername", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :username")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosPass", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosPass = :infoUsuariosPass")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosNombres", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosNombres = :infoUsuariosNombres")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosWallet", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosWallet = :infoUsuariosWallet")

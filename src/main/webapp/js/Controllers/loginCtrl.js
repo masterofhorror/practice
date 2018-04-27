@@ -85,7 +85,7 @@
                 $scope.datos.infoUsuariosNombres = $scope.datosFormulario.nombres;
                 $scope.datos.infoUsuariosWallet = $scope.datosFormulario.wallet;
                 $scope.datos.infoUsuariosEmail = $scope.datosFormulario.email;
-                $scope.datos.usuariosIdReferido = $scope.datosFormulario.referido;
+                $scope.datos.userNameReferido = $scope.datosFormulario.userNameReferido;
                 $http.post($scope.urlConsulta + "user/registerUser", $scope.datos, {})
                         .success(function (data, status, headers, config) {
                             if (data.codmensaje === "OK") {

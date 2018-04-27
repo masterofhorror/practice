@@ -9,6 +9,7 @@ import com.ltc.dto.InfoUsuarioDTO;
 import com.ltc.dto.MensajeDTO;
 import com.ltc.logica.UsuarioLogica;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -22,6 +23,7 @@ import javax.ws.rs.core.MediaType;
  * @author dsalamanca
  */
 @Path("user")
+@Stateless
 public class userServicio {
 
     @Context

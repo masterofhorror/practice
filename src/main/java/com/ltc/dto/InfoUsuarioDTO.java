@@ -21,6 +21,7 @@ public class InfoUsuarioDTO {
     private String infoUsuariosEmail;
     private Integer usuariosIdReferido;
     private Usuarios infoUsuariosIdUsuario;
+    private String userNameReferido;
 
     public Integer getInfoUsuariosId() {
         return infoUsuariosId;
@@ -84,6 +85,14 @@ public class InfoUsuarioDTO {
 
     public void setInfoUsuariosIdUsuario(Usuarios infoUsuariosIdUsuario) {
         this.infoUsuariosIdUsuario = infoUsuariosIdUsuario;
+    }
+
+    public String getUserNameReferido() {
+        return userNameReferido;
+    }
+
+    public void setUserNameReferido(String userNameReferido) {
+        this.userNameReferido = userNameReferido;
     }
 
 }

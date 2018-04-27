@@ -14,36 +14,52 @@
 </div>
 <div ng-show="registrar">
     registrar
+    <br>
+    Username
     <input
         ng-model="datosFormulario.username"
         capitalize
         />
+    <br>
+    nombres
     <input
         ng-model="datosFormulario.nombres"
         capitalize
         />
+    <br>
+    email
     <input
         ng-model="datosFormulario.email"
-        capitalize
+        type="email"
         />
+    <br>
+    wallet
     <input
         ng-model="datosFormulario.wallet"
         
         />
+    <br>
+    pass
     <input
         ng-model="datosFormulario.password"
         type="password"
         />
+    <br>
+    pass2
     <input
         ng-model="datosFormulario.password2"
         type="password"
         />
+    <br>
+    referido
     <input
-        ng-model="datosFormulario.referido"
+        ng-model="datosFormulario.userNameReferido"
         capitalize
         />
+    <br>
     <button type="button" class="btn btn-default" ng-click="verLogin()">Iniciar Sesión</button>
     <button type="button" class="btn btn-default" ng-click="registerUser()">Registrar</button>
 </div>
 
 
+<h1>Hello, world!</h1>
