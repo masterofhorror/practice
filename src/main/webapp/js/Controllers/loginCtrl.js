@@ -35,8 +35,8 @@
                 $scope.datos.infoUsuariosPass = $scope.datosFormulario.password;
                 $http.post($scope.urlConsulta + "user/validaUser", $scope.datos, {})
                         .success(function (data, status, headers, config) {
-                            if (data.codmensaje === "OK") {
-                                alert("EL usuario existe");
+                            if (data.codmensaje === "USER") {
+                                window.open("partials/user/index.html", "_self");
                             } else {
                                 if (data.codmensaje === "ERROR") {
                                     alert(data.mensaje);
@@ -105,15 +105,27 @@
         // ** --Funciones utilitarias
         $scope.verLogin = verLogin;
         $scope.verRegistro = verRegistro;
+        $scope.limpiarCampos = limpiarCampos;
 
         function verLogin() {
             $scope.login = true;
             $scope.registrar = false;
+            $scope.limpiarCampos();
         }
 
         function verRegistro() {
             $scope.login = false;
             $scope.registrar = true;
+            $scope.limpiarCampos();
+        }
+
+        function limpiarCampos() {
+            $scope.datosFormulario.username = '';
+            $scope.datosFormulario.password = '';
+            $scope.datosFormulario.nombres = '';
+            $scope.datosFormulario.wallet = '';
+            $scope.datosFormulario.email = '';
+            $scope.datosFormulario.userNameReferido = '';
         }
     }
 

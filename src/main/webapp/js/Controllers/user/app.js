@@ -11,9 +11,9 @@ var module = angular.module('Ltc', [
 
 module.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'loginCtrl'});
-//        $routeProvider.when('/user/home', {templateUrl: 'partials/user/user.html', controller: 'homeUserCtrl'});
+        $routeProvider.when('/user/home', {templateUrl: '../../partials/user/home.html', controller: 'homeUserCtrl'});
     
-        $routeProvider.otherwise({redirectTo: '/login'});
+        $routeProvider.otherwise({redirectTo: '/user/home'});
     }]).directive('capitalize',
         function () {
 
