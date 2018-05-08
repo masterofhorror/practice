@@ -1,3 +1,26 @@
+<div class="modal fade espera-modal-sm" id="dlgError" tabindex="-1"
+     role="dialog" aria-labelledby="dlgError" aria-hidden="false">
+    <div class="modal-backdrop fade in" style="height: 100%;"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="col-sm-10">
+                        <strong>Error...</strong>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: justify;">
+                        <i class="fas fa-exclamation-triangle"></i> <span> {{message}} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ***** Header Area Start ***** -->
 <header class="header_area animated">
     <div class="container-fluid">
         <div class="row align-items-center">
@@ -13,70 +36,400 @@
         </div>
     </div>
 </header>
-<div ng-show="login">
-    Iniciar sesión
-    <input
-        ng-model="datosFormulario.username"
-        capitalize
-        />
-    <input
-        type="password"
-        ng-model="datosFormulario.password"
-        capitalize
-        />
-    <button type="button" class="btn btn-default" ng-click="startSesion()">Iniciar Sesión</button>
-    <button type="button" class="btn btn-default" ng-click="verRegistro()">Registrar</button>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Wellcome Area Start ***** -->
+<section class="wellcome_area clearfix" id="home">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 col-md">
+                <div class="wellcome-heading">
+                    <h2>LotiCoin</h2>
+                    <h3 style="color: goldenrod">LTC</h3>
+                    <p>La mayor loteria de criptomoneda del mundo.</p>
+                </div>
+                <div class="get-start-area">
+                    <!-- Form Start -->
+                    <form action="#" method="post" class="form-inline">
+                        <!--                                <input type="email" class="form-control email" placeholder="name@company.com">
+                                                        <input type="submit" class="submit" value="Get Started">-->
+                    </form>
+                    <!-- Form End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Welcome thumb -->
+    <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.5s">
+        <img src="img/coheteBtc.png" alt="">
+    </div>
+</section>
+<!-- ***** Wellcome Area End ***** -->
+
+<!-- ***** Special Area Start ***** -->
+<section class="special-area bg-white section_padding_100" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading Area -->
+                <div class="section-heading text-center">
+                    <h2>Why Is It Special</h2>
+                    <div class="line-shape"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="single-icon">
+                        <i class="fa fa-amazon" aria-hidden="true"></i>
+                    </div>
+                    <h4>Easy to use</h4>
+                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                </div>
+            </div>
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-icon">
+                        <i class="fa fa-amazon" aria-hidden="true"></i>
+                    </div>
+                    <h4>Powerful Design</h4>
+                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                </div>
+            </div>
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="single-icon">
+                        <i class="fa fa-amazon" aria-hidden="true"></i>
+                    </div>
+                    <h4>Customizability</h4>
+                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Special Area End ***** -->
+
+
+<!-- ***** Cool Facts Area Start ***** -->
+<section class="cool_facts_area clearfix" id="gift">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Heading Text -->
+                <div class="section-heading text-center">
+                    <h2 style="color: white">Partipe por</h2>
+                    <h4 style="color: white">los siguientes premios</h4>
+                    <div class="line-shape"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Single Cool Fact-->
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.2s">
+
+                    <div class="counter-area">
+                        <h3><span class="counter">90</span></h3>
+                    </div>
+                    <div class="cool-facts-content">
+                        <img src="img/bitCoinIcon.png" alt="">
+                        <p>Bitcoin</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Cool Fact-->
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="counter-area">
+                        <h3><span class="counter">40</span></h3>
+                    </div>
+                    <div class="cool-facts-content">
+                        <img src="img/ethereumIcon.png" alt="">
+                        <p>Ethereum</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Cool Fact-->
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="single-cool-fact d-flex justify-content-center wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="counter-area">
+                        <h3><span class="counter">10</span></h3>
+                    </div>
+                    <div class="cool-facts-content">
+                        <img src="img/liteCoinIcon.png" alt="">
+                        <p>Litecoin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Cool Facts Area End ***** -->
+
+<!-- ***** Registrarse ***** -->
+<section class="awesome-feature-area bg-white section_padding_0_50 clearfix" id="about">
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Heading Text  -->
+                    <div class="section-heading text-center">
+                        <h2>Iniciar Sesión</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                    <div class="footer-text">
+                        <p>Señor usuario recuerde que su usuario y contraseña son personales.</p>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <!-- Form Start-->
+                    <div class="contact_from">
+                        <!-- Formulario de inicio sesion -->
+                        <div ng-show="login">
+                            <div class="contact_input_area">
+                                <div class="row">
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.username}">
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="user" 
+                                                id="userLogin" 
+                                                placeholder="Usuario"
+                                                ng-model="datosFormulario.username"
+                                                ng-class="{'has-error': errores.username}"
+                                                required>
+                                            <span ng-show="errores.username" class="control-label">{{errores.username}}</span>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.password}">
+                                            <input 
+                                                type="password" 
+                                                class="form-control" 
+                                                name="password" 
+                                                id="passwordLogin" 
+                                                placeholder="Contraseña"
+                                                ng-model="datosFormulario.password"
+                                                ng-class="{'has-error': errores.password}"
+                                                required>
+                                            <span ng-show="errores.password" class="control-label">{{errores.password}}</span>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="startSesion()">Iniciar Sesión</button>
+                                    </div><br>
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="verRegistro()">Registrarse</button>
+                                    </div><br>
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="verRecoveryPass()">Recordad Contraseña</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Formulario de inicio sesion -->
+                        <!-- Formulario para registrarse -->
+                        <div ng-show="registrar">
+                            <div class="contact_input_area">
+                                <div class="row">
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.username}">
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="user" 
+                                                id="userRegistrar" 
+                                                placeholder="Usuario"
+                                                ng-model="datosFormulario.username"
+                                                ng-class="{'has-error': errores.username}"
+                                                required>
+                                            <span ng-show="errores.username" class="control-label">{{errores.username}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.email}">
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="email" 
+                                                id="emailRegistrar" 
+                                                placeholder="Correo Electronico"
+                                                ng-model="datosFormulario.email"
+                                                ng-class="{'has-error': errores.email}"
+                                                required>
+                                            <span ng-show="errores.email" class="control-label">{{errores.email}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.wallet}">
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="wallet" 
+                                                id="walletRegistrar" 
+                                                placeholder="Wallet"
+                                                ng-model="datosFormulario.wallet"
+                                                ng-class="{'has-error': errores.wallet}"
+                                                required>
+                                            <span ng-show="errores.email" class="control-label">{{errores.wallet}}</span>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.password}">
+                                            <input 
+                                                type="password" 
+                                                class="form-control" 
+                                                name="password" 
+                                                id="passwordRegistrar" 
+                                                placeholder="Contraseña"
+                                                ng-model="datosFormulario.password"
+                                                ng-class="{'has-error': errores.password}"
+                                                required>
+                                            <span ng-show="errores.password" class="control-label">{{errores.password}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.password2}">
+                                            <input 
+                                                type="password" 
+                                                class="form-control" 
+                                                name="password" 
+                                                id="repasswordRegistrar" 
+                                                placeholder="Repetir Contraseña"
+                                                ng-model="datosFormulario.password2"
+                                                ng-class="{'has-error': errores.password2}"
+                                                required>
+                                            <span ng-show="errores.password2" class="control-label">{{errores.password2}}</span>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="verLogin()">Iniciar Sesión</button>
+                                    </div><br>
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="registerUser()">Registrarse</button>
+                                    </div><br>
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="verRecoveryPass()">Recordad Contraseña</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Formulario para registrarse -->
+                        <!-- Formulario para recuperar contraseña -->
+                        <div ng-show="recuperarPass">
+                            <div class="contact_input_area">
+                                <div class="row">
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.username}">
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="user" 
+                                                id="userRecuperar" 
+                                                placeholder="Usuario"
+                                                ng-model="datosFormulario.username"
+                                                ng-class="{'has-error': errores.username}"
+                                                required>
+                                            <span ng-show="errores.username" class="control-label">{{errores.username}}</span>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group" ng-class="{'has-error': errores.email}">
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="email" 
+                                                id="emailRecuperar" 
+                                                placeholder="Correo Electronico"
+                                                ng-model="datosFormulario.email"
+                                                ng-class="{'has-error': errores.email}"
+                                                required>
+                                            <span ng-show="errores.email" class="control-label">{{errores.email}}</span>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="verLogin()">Iniciar Sesión</button>
+                                    </div><br>
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="verRegistro()">Registrarse</button>
+                                    </div><br>
+                                    <div class="col-16">
+                                        <button type="submit" class="btn submit-btn" ng-click="recoveryUser()">Recordad Contraseña</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Formulario para recuperar contraseña -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ***** FIN Registrarse ***** -->
+<!-- ***** Footer Area Start ***** -->
+<footer class="footer-social-icon text-center section_padding_70 clearfix">
+    <!-- footer logo -->
+    <div class="footer-text">
+        <h2>LTC.</h2>
+    </div>
+    <!-- social icon-->
+    <!--            <div class="footer-social-icon">
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="active fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                </div>-->
+    <div class="footer-menu">
+        <nav>
+            <ul>
+                <li><a data-toggle="modal" href="#exampleModalLong">Terminos &amp; Condiciones</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Foooter Text-->
+    <div class="copyright-text">
+        <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
+        <p>Copyright ©2017 LTC. Designed by <a href="#" target="_blank">LoteriCoin</a></p>
+    </div>
+</footer>
+<!-- ***** Footer Area Start ***** -->
+<!-- ***** Modal Terminos y condiciones *****-->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Terminos y condiciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
-<div ng-show="registrar">
-    registrar
-    <br>
-    Username
-    <input
-        ng-model="datosFormulario.username"
-        capitalize
-        />
-    <br>
-    nombres
-    <input
-        ng-model="datosFormulario.nombres"
-        capitalize
-        />
-    <br>
-    email
-    <input
-        ng-model="datosFormulario.email"
-        type="email"
-        />
-    <br>
-    wallet
-    <input
-        ng-model="datosFormulario.wallet"
-
-        />
-    <br>
-    pass
-    <input
-        ng-model="datosFormulario.password"
-        type="password"
-        />
-    <br>
-    pass2
-    <input
-        ng-model="datosFormulario.password2"
-        type="password"
-        />
-    <br>
-    referido
-    <input
-        ng-model="datosFormulario.userNameReferido"
-        capitalize
-        />
-    <br>
-    <button type="button" class="btn btn-default" ng-click="verLogin()">Iniciar Sesión</button>
-    <button type="button" class="btn btn-default" ng-click="registerUser()">Registrar</button>
-</div>
-
-
-<h1>Hello, world!</h1>
-
-<i class="fab fa-btc"></i>
+<!-- ***** Fin Modal Terminos y condiciones *****-->

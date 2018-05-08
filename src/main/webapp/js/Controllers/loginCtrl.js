@@ -15,19 +15,21 @@
         // ** --Variables
         $scope.login = true;
         $scope.registrar = false;
+        $scope.recuperarPass = false;
 
         // ** --Llamado de funciones
         $scope.startSesion = startSesion;
         $scope.registerUser = registerUser;
+        $scope.recoveryUser = recoveryUser;
 
         function startSesion() {
             var error = false;
             if (!$scope.datosFormulario.username) {
-                alert("El nombre de usuario es obligatorio");
+                $scope.errores.username = 'El nombre de usuario es obligatorio';
                 error = true;
             }
             if (!$scope.datosFormulario.password) {
-                alert("El password es obligatorio");
+                $scope.errores.password = 'El password es obligatorio';
                 error = true;
             }
             if (!error) {
@@ -51,32 +53,33 @@
         function registerUser() {
             var error = false;
             if (!$scope.datosFormulario.username) {
-                alert("El nombre de usuario es obligatorio");
+                $scope.errores.username = 'El nombre de usuario es obligatorio';
                 error = true;
             }
             if (!$scope.datosFormulario.password) {
-                alert("La contraseña es obligatorio");
+                $scope.errores.password = 'El password es obligatorio';
             } else {
                 if (!$scope.datosFormulario.password2) {
-                    alert("Por favor repetir la contraseña");
+                    $scope.errores.password2 = 'Por favor repetir la contraseña';
                     error = true;
                 } else {
                     if ($scope.datosFormulario.password !== $scope.datosFormulario.password2) {
-                        alert("Los campos de coinciden");
+                        $scope.errores.password = 'Los campos de coinciden';
+                        $scope.errores.password2 = 'Los campos de coinciden';
                         error = true;
                     }
                 }
             }
             if (!$scope.datosFormulario.nombres) {
-                alert("El nombre es obligatorio");
+                $scope.errores.nombres = 'El nombre es obligatorio';
                 error = true;
             }
             if (!$scope.datosFormulario.email) {
-                alert("La dirección de correo electronico es obligatorio");
+                $scope.errores.email = 'La dirección de correo electronico es obligatorio';
                 error = true;
             }
             if (!$scope.datosFormulario.wallet) {
-                alert("El número de wallet es obligatorio");
+                $scope.errores.wallet = 'El número de wallet es obligatorio';
                 error = true;
             }
             if (!error) {
@@ -101,31 +104,65 @@
             }
         }
 
+        function recoveryUser() {
+            var error = false;
+            if (!$scope.datosFormulario.email) {
+                $scope.errores.email = 'La dirección de correo electronico es obligatorio';
+                error = true;
+            }
+            if (!$scope.datosFormulario.username) {
+                $scope.errores.username = 'El nombre de usuario es obligatorio';
+                error = true;
+            }
+            if(error){
+                
+            }
+        }
 
         // ** --Funciones utilitarias
         $scope.verLogin = verLogin;
         $scope.verRegistro = verRegistro;
         $scope.limpiarCampos = limpiarCampos;
+        $scope.mensajeError = mensajeError;
+        $scope.verRecoveryPass = verRecoveryPass;
 
         function verLogin() {
             $scope.login = true;
             $scope.registrar = false;
+            $scope.recuperarPass = false;
             $scope.limpiarCampos();
         }
 
         function verRegistro() {
             $scope.login = false;
             $scope.registrar = true;
+            $scope.recuperarPass = false;
+            $scope.limpiarCampos();
+        }
+
+        function verRecoveryPass() {
+            $scope.login = false;
+            $scope.registrar = false;
+            $scope.recuperarPass = true;
             $scope.limpiarCampos();
         }
 
         function limpiarCampos() {
+            $scope.errores.username = '';
+            $scope.errores.password = '';
             $scope.datosFormulario.username = '';
             $scope.datosFormulario.password = '';
             $scope.datosFormulario.nombres = '';
             $scope.datosFormulario.wallet = '';
             $scope.datosFormulario.email = '';
             $scope.datosFormulario.userNameReferido = '';
+            $scope.errores.email = '';
+            $scope.errores.wallet = '';
+        }
+
+        function mensajeError() {
+            $('#msgResultadoRegOk').modal($scope.errores.message);
+            $(".messages").fadeIn();
         }
     }
 
