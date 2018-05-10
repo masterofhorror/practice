@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosWallet", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosWallet = :infoUsuariosWallet")
     , @NamedQuery(name = "InfoUsuarios.findByInfoUsuariosEmail", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosEmail = :infoUsuariosEmail")
     , @NamedQuery(name = "InfoUsuarios.findByUsuariosIdReferido", query = "SELECT i FROM InfoUsuarios i WHERE i.usuariosIdReferido = :usuariosIdReferido")
-    , @NamedQuery(name = "InfoUsuarios.countUsername", query = "SELECT COUNT(i) FROM InfoUsuarios i WHERE i.infoUsuariosUsername = :username")
+    , @NamedQuery(name = "InfoUsuarios.countUsername", query = "SELECT COUNT(i) FROM InfoUsuarios i WHERE i.infoUsuariosUsername = UPPER(:username)")
     , @NamedQuery(name = "InfoUsuarios.findUserByPassAndUser", query = "SELECT i FROM InfoUsuarios i WHERE i.infoUsuariosUsername = UPPER(:username) AND i.infoUsuariosPass = UPPER(:password)")    
 })
 public class InfoUsuarios implements Serializable {
