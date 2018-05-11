@@ -7,18 +7,10 @@
     homeUser.$inject = ['$scope', '$http', '$routeParams'];
 
     function homeUser($scope, $http, $routeParams) {
+        $scope.data = {
+            usuario : $routeParams.param1
+        };
         
-        if ($routeParams.param1) {
-
-            var numSol = $routeParams.param1;
-
-            $scope.consultarDatosSol(numSol);
-
-        } else {
-
-            return;
-
-        }
         $scope.logout = logout;
         
         function logout (){
