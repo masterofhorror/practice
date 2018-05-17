@@ -5,13 +5,15 @@
  */
 package com.ltc.dto;
 
+import com.ltc.comun.Mensajes;
+
 /**
  *
  * @author dsalamanca
  */
 public class MensajeDTO {
 
-    private String codmensaje;
+    private Mensajes codmensaje;
     private Object object;
     private String mensaje;
 
@@ -23,11 +25,11 @@ public class MensajeDTO {
         this.mensaje = mensaje;
     }
 
-    public String getCodmensaje() {
+    public Mensajes getCodmensaje() {
         return codmensaje;
     }
 
-    public void setCodmensaje(String codmensaje) {
+    public void setCodmensaje(Mensajes codmensaje) {
         this.codmensaje = codmensaje;
     }
 

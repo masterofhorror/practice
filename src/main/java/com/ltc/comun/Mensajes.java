@@ -9,10 +9,7 @@ package com.ltc.comun;
  *
  * @author davidscorp
  */
-public class Mensajes {
-    
-    public static enum ESTADOS_MESAJE {
+public enum Mensajes {
         OK, ERROR, USER, ADMIN
-    };
-    
+   
 }
